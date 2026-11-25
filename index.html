@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FF Skin Hub — Simulador</title>
+<style>
+:root{--bg:#080b12;--panel:#111827;--muted:#9ca3af;--orange:#ff7a18;--cyan:#29d7ff}
+*{box-sizing:border-box}
+body{margin:0;background:radial-gradient(circle at 50% -10%,#26354e 0,#0b101a 42%,#07090e 100%);color:#fff;font-family:Arial,Helvetica,sans-serif;min-height:100vh}
+header{padding:22px 16px 16px;text-align:center;border-bottom:1px solid #273244;background:#080d16dd;position:sticky;top:0;z-index:5;backdrop-filter:blur(10px)}
+.logo{font-weight:1000;font-size:26px;letter-spacing:2px}.logo span{color:var(--orange)}
+header p{margin:7px 0 0;color:var(--muted);font-size:12px}
+.wrap{max-width:950px;margin:auto;padding:18px 14px 40px}
+.notice{background:#2a1b12;border:1px solid #8d4a20;color:#ffd2ad;padding:11px 13px;border-radius:12px;font-size:12px;line-height:1.45;margin-bottom:18px}
+.hero{display:grid;grid-template-columns:1fr 1fr;gap:14px;align-items:center;background:linear-gradient(120deg,#17243a,#101521);border:1px solid #34445e;border-radius:18px;padding:18px;margin-bottom:20px}
+.hero h1{font-size:clamp(22px,5vw,36px);margin:0 0 8px}.hero p{color:#b9c5d5;font-size:13px;line-height:1.5;margin:0}
+.hero-art{height:170px;border-radius:14px;display:grid;place-items:center;background:radial-gradient(circle,#364d70,#121a29 70%);font-size:76px}
+.tabs{display:flex;gap:8px;overflow:auto;padding:2px 0 14px}
+.tab{border:1px solid #334155;background:#111827;color:#dbe4f0;border-radius:30px;padding:9px 14px;white-space:nowrap;font-weight:700}
+.tab.active{background:var(--orange);border-color:var(--orange);color:#1a1008}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.skin{background:linear-gradient(160deg,#182235,#10151f);border:1px solid #29384e;border-radius:16px;overflow:hidden}
+.art{height:160px;display:grid;place-items:center;font-size:68px;position:relative}
+.art small{position:absolute;bottom:9px;left:10px;background:#0009;border-radius:20px;padding:5px 9px;font-size:10px;letter-spacing:1px}
+.redblue{background:radial-gradient(circle at 50% 35%,#e94747,#173d70 68%,#101827)}
+.gold{background:radial-gradient(circle,#b58a35,#4b3217 70%,#15121a)}
+.neon{background:radial-gradient(circle,#1a9b9c,#26305e 65%,#111827)}
+.ninja{background:radial-gradient(circle,#555,#171923 70%)}
+.ice{background:radial-gradient(circle,#9beaff,#285a85 65%,#111827)}
+.flame{background:radial-gradient(circle,#ff9b37,#8a2724 65%,#111827)}
+.skin-info{padding:12px}.skin-info h3{margin:0 0 5px;font-size:15px}.skin-info p{margin:0 0 11px;color:var(--muted);font-size:11px}
+.actions{display:flex;gap:7px}.btn{flex:1;border:0;border-radius:9px;padding:9px 7px;font-weight:800;font-size:11px;background:var(--orange);color:#17100a}.btn.secondary{background:#26364d;color:#e7f2ff}
+.status{margin-top:14px;padding:12px;border-radius:12px;background:#0e1724;border:1px solid #29384e;color:#b7c7d9;font-size:12px;min-height:42px}
+footer{text-align:center;color:#738096;font-size:11px;padding:22px 8px}
+@media(min-width:650px){.grid{grid-template-columns:repeat(3,minmax(0,1fr))}.art{height:190px}}
+@media(max-width:420px){.hero{grid-template-columns:1fr}.hero-art{height:120px}.grid{gap:9px}.art{height:135px}}
+</style>
+</head>
+<body>
+<header>
+  <div class="logo">FF <span>SKIN HUB</span></div>
+  <p>CATÁLOGO DE VISUALIZAÇÃO • SIMULADOR NÃO OFICIAL</p>
+</header>
+<main class="wrap">
+  <div class="notice"><strong>Aviso:</strong> este é um simulador visual feito em HTML. Não é um proxy real, não se conecta aos servidores do Free Fire, não injeta arquivos e não altera contas ou skins dentro do jogo.</div>
+  <section class="hero">
+    <div><h1>Escolha seu estilo.</h1><p>Explore visuais de heróis, roupas futuristas e conjuntos lendários. Toque em uma skin para ver a seleção no simulador.</p></div>
+    <div class="hero-art">🎮</div>
+  </section>
+  <nav class="tabs" aria-label="Categorias">
+    <button class="tab active" data-filter="todos">Todas</button>
+    <button class="tab" data-filter="heroi">Heróis</button>
+    <button class="tab" data-filter="lendaria">Lendárias</button>
+    <button class="tab" data-filter="futurista">Futuristas</button>
+    <button class="tab" data-filter="ninja">Ninja</button>
+  </nav>
+  <section class="grid" id="skins">
+    <article class="skin" data-category="heroi"><div class="art redblue">🕸️<small>HERÓI</small></div><div class="skin-info"><h3>Aranha Vermelha</h3><p>Visual inspirado em heróis aracnídeos</p><div class="actions"><button class="btn choose">Selecionar</button><button class="btn secondary fav">♡ Favoritar</button></div></div></article>
+    <article class="skin" data-category="lendaria"><div class="art gold">👑<small>LENDÁRIA</small></div><div class="skin-info"><h3>Rei Dourado</h3><p>Armadura dourada de prestígio</p><div class="actions"><button class="btn choose">Selecionar</button><button class="btn secondary fav">♡ Favoritar</button></div></div></article>
+    <article class="skin" data-category="futurista"><div class="art neon">🤖<small>FUTURISTA</small></div><div class="skin-info"><h3>Cyber Neon</h3><p>Estilo tecnológico com brilho neon</p><div class="actions"><button class="btn choose">Selecionar</button><button class="btn secondary fav">♡ Favoritar</button></div></div></article>
+    <article class="skin" data-category="ninja"><div class="art ninja">🥷<small>NINJA</small></div><div class="skin-info"><h3>Ninja Sombrio</h3><p>Conjunto furtivo em tons escuros</p><div class="actions"><button class="btn choose">Selecionar</button><button class="btn secondary fav">♡ Favoritar</button></div></div></article>
+    <article class="skin" data-category="futurista"><div class="art ice">❄️<small>ÉPICA</small></div><div class="skin-info"><h3>Gelo Ártico</h3><p>Visual congelante em azul e prata</p><div class="actions"><button class="btn choose">Selecionar</button><button class="btn secondary fav">♡ Favoritar</button></div></div></article>
+    <article class="skin" data-category="lendaria"><div class="art flame">🔥<small>ESPECIAL</small></div><div class="skin-info"><h3>Fênix de Fogo</h3><p>Conjunto com tema de chamas</p><div class="actions"><button class="btn choose">Selecionar</button><button class="btn secondary fav">♡ Favoritar</button></div></div></article>
+  </section>
+  <div class="status" id="status" role="status">Nenhuma skin selecionada. Escolha uma para visualizar.</div>
+</main>
+<footer>Projeto de demonstração independente • Não afiliado à Garena ou ao Free Fire.</footer>
+<script>
+const tabs=[...document.querySelectorAll('.tab')], cards=[...document.querySelectorAll('.skin')], statusBox=document.getElementById('status');
+tabs.forEach(tab=>tab.addEventListener('click',()=>{
+  tabs.forEach(t=>t.classList.remove('active'));tab.classList.add('active');
+  cards.forEach(card=>card.style.display=(tab.dataset.filter==='todos'||card.dataset.category===tab.dataset.filter)?'':'none');
+}));
+cards.forEach(card=>{
+  card.querySelector('.choose').addEventListener('click',()=>{
+    const name=card.querySelector('h3').textContent;
+    statusBox.textContent='✨ '+name+' selecionada no simulador! (A seleção é apenas visual e não muda o jogo.)';
+  });
+  card.querySelector('.fav').addEventListener('click',e=>{
+    const b=e.currentTarget;const on=b.dataset.on==='1';b.dataset.on=on?'0':'1';b.textContent=on?'♡ Favoritar':'♥ Favoritada';
+  });
+});
+</script>
+</body>
+</html>
